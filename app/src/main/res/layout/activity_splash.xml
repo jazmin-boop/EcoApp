@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo">
+
+    <!-- Capa superpuesta más oscura, estilo la plantilla para resaltar el texto blanco -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000" /> <!-- Negro con 60% de opacidad, igual que el Login -->
+
+    <LinearLayout
+        android:id="@+id/llCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnIngresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Título principal como en la imagen pero diciendo "EcoHuerta" -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EcoHuerta"
+            android:textColor="#FFFFFF"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:shadowColor="#80000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Icono circular que recorta tu imagen y se expande de extremo a extremo -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="70dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="#4CAF50"
+            app:cardBackgroundColor="#F8E8EB"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="32dp">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icono"
+                android:contentDescription="Icono de EcoHuerta" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Reflexión sobre el huerto y la naturaleza -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cultiva tu propio espacio verde\ny siembra vida cada día"
+            android:textColor="#F5F5F5"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="16dp" />
+
+        <!-- La flor de abajo de la plantilla -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌸"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <!-- Botón de Ingresar en la portada (mismo formato de login) -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnIngresar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/bg_btn_light"
+        android:text="Ingresar"
+        android:textAllCaps="false"
+        android:textColor="#2E4A2A"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

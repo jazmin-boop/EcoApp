@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EcoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+    </style>
+
+    <style name="Theme.EcoApp" parent="Base.Theme.EcoApp" />
+
+    <!-- Popup menú desplegable de tono claro (Filtros) -->
+    <style name="Theme.EcoApp.LightPopup" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="android:textColorPrimary">#222222</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:itemBackground">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
+        <item name="android:focusedMonthDateColor">#222222</item>
+        <item name="android:unfocusedMonthDateColor">#888888</item>
+        <item name="android:weekNumberColor">#2E7D32</item>
+        <item name="android:weekSeparatorLineColor">#E0E0E0</item>
+        <!-- Mejorar el contraste -->
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimary">#2E7D32</item>
+        <item name="colorOnSurface">#222222</item>
+    </style>
+</resources>

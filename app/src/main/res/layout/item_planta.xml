@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <!-- Foto circular avatar de la planta -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#EAEAEA">
+            <ImageView
+                android:id="@+id/ivPlantaItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/helecho"
+                android:contentDescription="Planta" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Datos de la Planta -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:id="@+id/tvNombrePlantaItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monstera de la Sala"
+                android:textColor="#222222"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvEspeciePlantaItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monstera deliciosa • Interior"
+                android:textColor="#666666"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/tvRiegoPlantaItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riego cada 7 días | Siembra: 10/08/2026"
+                android:textColor="#2E7D32"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Botones de Acción: Lápiz (Editar) y Tacho (Eliminar) -->
+        <ImageView
+            android:id="@+id/btnEditarPlanta"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_pencil"
+            android:padding="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Editar"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/btnEliminarPlanta"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_trash"
+            android:padding="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Eliminar" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

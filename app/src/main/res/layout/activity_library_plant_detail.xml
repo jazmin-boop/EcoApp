@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F6F0">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="90dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Barra Superior: Botón Volver con margen superior para no pegarse al borde -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/ivBackLibDetail"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_search"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Volver" />
+            </RelativeLayout>
+
+            <!-- Imagen Principal de la Planta con Badges -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#EAEAEA">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivLibDetailImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/helecho"
+                        android:contentDescription="Planta" />
+
+                    <!-- Botón de Corazón Instagram (Top Right) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardHeart"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <ImageView
+                            android:id="@+id/ivHeartLike"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_heart_border"
+                            android:contentDescription="Me gusta" />
+                    </com.google.android.material.card.MaterialCardView>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Título y Especie -->
+            <TextView
+                android:id="@+id/tvLibDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monstera"
+                android:textColor="#222222"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLibDetailSpecies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monstera deliciosa"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 4 Tarjetas de Atributos con Estrellas Grandes (4 Estrellas en una sola línea) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:layout_marginBottom="24dp">
+
+                <!-- Atributo 1: Fácil de cuidar -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_card_green_outline"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="4dp">
+                    <TextView android:text="★★★★☆" android:textSize="14sp" android:maxLines="1" android:singleLine="true" android:textColor="#FFA000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="-0.02"/>
+                    <TextView android:text="Fácil\nde cuidar" android:textSize="10sp" android:textColor="#2E7D32" android:textStyle="bold" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp"/>
+                </LinearLayout>
+
+                <!-- Atributo 2: Luz difusa -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:background="@drawable/bg_card_green_outline"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="4dp">
+                    <TextView android:text="★★★★☆" android:textSize="14sp" android:maxLines="1" android:singleLine="true" android:textColor="#FFA000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="-0.02"/>
+                    <TextView android:text="Luz\ndifusa" android:textSize="10sp" android:textColor="#2E7D32" android:textStyle="bold" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp"/>
+                </LinearLayout>
+
+                <!-- Atributo 3: Riego moderado -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:background="@drawable/bg_card_green_outline"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="4dp">
+                    <TextView android:text="★★★★☆" android:textSize="14sp" android:maxLines="1" android:singleLine="true" android:textColor="#FFA000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="-0.02"/>
+                    <TextView android:text="Riego\nmoderado" android:textSize="10sp" android:textColor="#2E7D32" android:textStyle="bold" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp"/>
+                </LinearLayout>
+
+                <!-- Atributo 4: Ligeramente tóxica -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_card_red_outline"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="4dp">
+                    <TextView android:text="★★★★☆" android:textSize="14sp" android:maxLines="1" android:singleLine="true" android:textColor="#FFA000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="-0.02"/>
+                    <TextView android:text="Ligeramente\ntóxica" android:textSize="10sp" android:textColor="#C2185B" android:textStyle="bold" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Pestañas Funcionales en Español -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:id="@+id/tvTabBasic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Información básica"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32"
+                    android:layout_marginEnd="16dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+                <TextView
+                    android:id="@+id/tvTabCare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cuidados"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:layout_marginEnd="16dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+                <TextView
+                    android:id="@+id/tvTabPests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Problemas/Plagas"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:layout_marginEnd="16dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+                <TextView
+                    android:id="@+id/tvTabOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Otros"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <!-- Definición / Descripción detallada dinámica -->
+            <TextView
+                android:id="@+id/tvLibDetailDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cargando información..."
+                android:textColor="#444444"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Botón Añadir a mi Huerto -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddPlantToGarden"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_btn_dark"
+                android:text="Añadir a mi huerto"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
