@@ -1,46 +1,52 @@
 # EcoHuerta - Aplicación Nativa Android para Gestión de Huertos Urbanos
 
-**EcoHuerta** es una aplicación móvil nativa para Android diseñada como asistente técnico para la gestión, cuidado y seguimiento de huertos urbanos y plantas de interior. Integra persistencia de datos relacional con **SQLite**, consumo asíncrono de la **API REST pública de Open-Meteo**, un sistema de recordatorios y notificaciones push, un catálogo botánico con soporte de carga de imágenes mediante **Glide**, y consultas analíticas estructuradas en SQL.
+[![Android Min SDK](https://img.shields.io/badge/Min%20SDK-26%20%28Android%208.0%2B%29-brightgreen?logo=android)](https://developer.android.com/)
+[![Language Java](https://img.shields.io/badge/Language-Java%2011-orange?logo=java)](https://www.oracle.com/java/)
+[![Database SQLite](https://img.shields.io/badge/Database-SQLite%203-blue?logo=sqlite)](https://www.sqlite.org/)
+[![API REST Open--Meteo](https://img.shields.io/badge/API-Open--Meteo%20REST-009688?logo=openapi-initiative)](https://open-meteo.com/)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+EcoHuerta es una aplicación móvil nativa desarrollada para la plataforma Android, diseñada para la gestión, cuidado y seguimiento de huertos urbanos y plantas ornamentales de interior en América Latina. Integra persistencia de datos relacional con SQLite, consumo asíncrono de la API REST pública de Open-Meteo (https://api.open-meteo.com/v1/forecast), recordatorios y notificaciones PUSH del sistema, catálogo botánico con fotografía en alta resolución mediante la librería Glide, y consultas analíticas avanzadas en SQL.
 
 ---
 
 ## Características Principales
 
-### 1. Dashboard Principal e Integración Meteorológica
-- **API REST Open-Meteo**: Consulta asíncrona mediante `HttpURLConnection` y `ExecutorService` para la obtención de datos climáticos en tiempo real (temperatura y probabilidad de precipitación).
-- **Selector Regional**: Componente interactivo para alternar entre diferentes ciudades de la región (*Lima, Bogotá, Ciudad de México, Buenos Aires, Santiago*) y actualizar los parámetros meteorológicos.
-- **Gestión de Tareas Diarias**: Listado de tareas programadas con integración al `TimePickerDialog` nativo del sistema para la programación de recordatorios push.
-- **Sincronización de Tareas**: Actualización de estados mediante casillas de verificación que registran automáticamente los eventos en la bitácora de la base de datos.
-- **Visualización de Huerto**: Cuadrícula de elementos con avatares gestionados a través de **Glide**.
+### 1. Dashboard Principal e Integración Meteorológica en Vivo
+- **API REST Open-Meteo en Vivo**: Consulta asíncrona a la API REST de Open-Meteo (`https://api.open-meteo.com/v1/forecast?latitude=-12.05&longitude=-77.04&current=temperature_2m,precipitation&daily=precipitation_probability_max&timezone=auto`) mediante `HttpURLConnection` y `ExecutorService` para obtener temperatura real y probabilidad de lluvia diaria sin requerir claves de API.
+- **Selector de Región Móvil**: Interfaz desplegable para alternar entre diversas ciudades de América Latina (*Lima, Bogotá, Ciudad de México, Buenos Aires, Santiago*) y actualizar automáticamente la información climática.
+- **Listado Dinámico de Tareas Diarias**: Tareas programadas con botones de alarma que abren el componente nativo `TimePickerDialog` para agendar recordatorios PUSH.
+- **Tachado y Sincronización Automática**: Al marcar el casillero de verificación de una tarea, se aplica un formato visual de completado y se registra el evento en la bitácora de SQLite.
+- **Mi Huerto**: Cuadrícula interactiva con avatares circulares optimizados mediante Glide.
 
-### 2. Catálogo y Librería Botánica
-- **Búsqueda y Filtrado**: Funcionalidad de filtrado en tiempo real por categorías de especies (*Tropicales, Suculentas, Orquídeas, Trepadoras, Helechos*).
-- **Detalle Estructurado**: Interfaz dividida en cuatro secciones (*Información básica, Cuidados, Problemas y Plagas, Información adicional*).
-- **Sistema de Calificación**: Indicadores visuales normalizados para nivel de cuidado, requerimientos lumínicos, frecuencia de riego y toxicidad.
-- **Sistema de Favoritos**: Registro persistente en `SharedPreferences` vinculado a notificaciones del sistema.
+### 2. Catálogo y Librería de Plantas
+- **Buscador en Tiempo Real y Filtro por Categorías**: Filtra especies botánicas por categoría (*Tropicales, Suculentas, Orquídeas, Trepadoras, Helechos*) y búsqueda por nombre común o científico.
+- **Detalle de Planta en 4 Pestañas**: Información estructurada en cuatro pestañas (*Información básica, Cuidados, Problemas y Plagas, Otros*) con viñetas temáticas de hojas.
+- **Calificación por Estrellas Estilo Michelin**: Evaluación cuantitativa de cuatro atributos clave (*nivel de cuidado, iluminación, riego y toxicidad*) mediante un sistema de evaluación de cuatro estrellas (`★★★★☆`).
+- **Sistema de Favoritos**: Botón de interacción con almacenamiento persistente en `SharedPreferences` y emisión de notificaciones PUSH del sistema fuera de la aplicación.
 
-### 3. Gestión y Operaciones CRUD de Plantas
-- **Panel de Administración**: Vista general con resumen de ejemplares activos y listado completo.
-- **Confirmación de Eliminación**: Diálogos modulares para la supresión de registros con borrado en cascada en la base de datos.
-- **Formulario de Registro**: Interfaz de alta y edición con un componente desplegable tipo `BottomSheetDialog` para la selección y autocompletado desde el catálogo.
+### 3. Gestión y CRUD de Plantas
+- **Administración del Huerto**: Vista de administración con resumen de plantas activas y listado completo.
+- **Modal de Confirmación de Eliminación**: Diálogo personalizado para confirmar la eliminación permanente de una planta con borrado en cascada en la base de datos.
+- **Formulario Inteligente con Modal de Autocompletado**: Formulario de alta y edición de alto contraste que incluye un componente `BottomSheetDialog` desplegable para elegir plantas del catálogo y autocompletar sus datos.
 
 ### 4. Calendario de Cuidados
-- Vista mensual interactiva orientada al cálculo algorítmico de fechas de riego y mantenimiento preventivo según los parámetros de cada especie.
+- Vista de calendario mensual interactiva que calcula algorítmicamente las fechas futuras de riego y mantenimiento en función de los parámetros de cada especie.
 
 ### 5. Módulo de Reportes y Analítica SQL
-- **Ranking Analítico**: Consultas SQL avanzadas utilizando uniones (`JOIN`), agrupamientos (`GROUP BY`), ordenamiento (`ORDER BY`) y límites (`LIMIT`) para identificar las especies con mayor regularidad de mantenimiento.
-- **Historial de Riegos**: Tarjetas detalladas de eventos que registran la fecha, hora, estado del sustrato, condiciones climáticas y estado de poda.
+- **Ranking Top 5+ Plantas Más Regadas**: Consultas SQL avanzadas utilizando las cláusulas `JOIN`, `GROUP BY`, `ORDER BY` y `LIMIT` para determinar las plantas con mayor racha de cumplimiento.
+- **Historial de Riegos**: Módulo de auditoría que muestra fecha, hora, estado del sustrato (*Húmeda/Seca*), clima ambiental y mantenimiento de poda (*Podada / Sin poda*).
 
 ---
 
 ## Arquitectura y Tecnologías Utilizadas
 
-- **Lenguaje**: Java 11 (Compatible con Android SDK).
-- **Interfaz de Usuario**: Android Views (XML Layouts, `CoordinatorLayout`, `NestedScrollView`, `MaterialCardView`, `ConstraintLayout`, `RecyclerView`).
-- **Base de Datos Local**: SQLite (`ecohuerta.db`) con esquema normalizado en 7 tablas relacionales.
-- **Carga de Imágenes**: [Glide v4.16.0](https://github.com/bumptech/glide) para el renderizado y caché de recursos gráficos.
-- **Conectividad**: `HttpURLConnection` y `org.json` ejecutados en hilos secundarios mediante `ExecutorService`.
-- **Notificaciones**: `BroadcastReceiver` (`NotificationReceiver`) y `NotificationManager`.
+- **Lenguaje**: Java 11 (SDK Nativo de Android).
+- **Interfaz de Usuario**: Vistas nativas de Android en XML (`CoordinatorLayout`, `NestedScrollView`, `MaterialCardView`, `ConstraintLayout`, `RecyclerView`).
+- **Base de Datos Local**: SQLite v4 (`ecohuerta.db`) con arquitectura normalizada de 7 tablas relacionales.
+- **Carga de Imágenes**: [Glide v4.16.0](https://github.com/bumptech/glide) para almacenamiento en caché y renderizado eficiente de fotografía Unsplash en HD.
+- **Redes y API**: Consumo de la API REST de Open-Meteo (`https://api.open-meteo.com/v1/forecast`) mediante `HttpURLConnection` y `org.json` ejecutados en hilos secundarios desacoplados con `ExecutorService`.
+- **Notificaciones del Sistema**: Implementación de `BroadcastReceiver` (`NotificationReceiver`) y `NotificationManager` para notificaciones PUSH fuera de la aplicación.
 
 ---
 
@@ -128,3 +134,4 @@ plantas ||--o{ bitacora
 plantas ||--o{ tareas
 tipos_tarea ||--o{ tareas
 @enduml
+```
