@@ -1,8 +1,7 @@
 # EcoHuerta - Aplicación Nativa Android para Gestión de Huertos Urbanos
 
 
-EcoHuerta es una aplicación móvil nativa desarrollada para la plataforma Android, diseñada para la gestión, cuidado y seguimiento de huertos urbanos y plantas ornamentales de interior en América Latina. Integra persistencia de datos relacional con SQLite, consumo asíncrono de la API REST pública de Open-Meteo (https://api.open-meteo.com/v1/forecast), recordatorios y notificaciones PUSH del sistema, catálogo botánico con fotografía en alta resolución mediante la librería Glide, y consultas analíticas avanzadas en SQL.
-
+EcoHuerta es una aplicación móvil nativa para Android orientada a la gestión de huertos urbanos y plantas en Latinoamérica. Integra persistencia en SQLite, consumo asíncrono de la API Open-Meteo, notificaciones push, catálogo con Glide y analítica SQL.
 ---
 
 ## Características Principales
